@@ -80,7 +80,7 @@ class User extends Component {
           </svg>
         </div>
         <div className="nav-bar-name">
-          <h3>{this.props.name}</h3>
+          {this.props.name}
         </div>
         <div className="nav-bar-points">
           <Points />
@@ -106,6 +106,6 @@ class Points extends Component {
             <div>{this.state.pointVal}</div>
             <div>points</div>
         </div>
-        );
+    );
   }
 }
