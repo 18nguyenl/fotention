@@ -1,0 +1,46 @@
+.nav-bar {
+  font-family: "Poppins", sans-serif;
+  width: 100vw;
+  height: 10vh;
+}
+
+.nav-bar-points {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.nav-bar-points div {
+    display: inline-block;
+}
+
+.nav-bar-points:nth-child(2) {
+    display: inline-block;
+}
+
+.nav-bar-item {
+  margin: 0 20px;
+  padding: 5px;
+  display: inline-block;
+}
+
+.nav-bar-icon {
+  display: inline-block;
+}
+
+.nav-bar-name {
+  display: inline-block;
+  margin: 0 14px;
+}
+
+.nav-bar-profile {
+  position: absolute;
+  top: 2.2em;
+  right: 3.65em;
+}
+
+.nav-bar-title {
+  position: absolute;
+  left: 3.65em;
+  top: 2.2em;
+  font-weight: 700;
+}
