@@ -96,10 +96,11 @@ class Points extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pointVal: 8800
+      pointVal: 0
     };
   }
 
+  
   render() {
     return (
         <div>

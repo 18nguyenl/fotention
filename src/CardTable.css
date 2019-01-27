@@ -11,6 +11,7 @@
     padding: 50px;
     padding-left: 70px;
     font-family: 'Poppins', sans-serif;
+    box-shadow: 10px 5px 35px rgba(0, 0, 0, 0.15);
 }
 
 .card-table {
