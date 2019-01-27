@@ -17,10 +17,12 @@
 .nav-bar-points div {
     display: inline-block;
     margin-right: 3px;
+    color: #ACBB99;
 }
 
 .nav-bar-points:nth-child(2) {
     display: inline-block;
+    color: #707070;
 }
 
 .nav-bar-item {
@@ -52,4 +54,7 @@
   top: 2.2rem;
   font-weight: 700;
   font-size: 38px;
+  background-image: linear-gradient(90deg, #50BCDE , #A9EDD8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

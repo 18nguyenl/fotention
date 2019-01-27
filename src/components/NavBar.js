@@ -96,7 +96,7 @@ class Points extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pointVal: 0
+      pointVal: 8800
     };
   }
 
