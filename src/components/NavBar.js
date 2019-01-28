@@ -1,5 +1,15 @@
 import React, { Component } from "react";
 import "../NavBar.css";
+// import firebase from '@firebase';
+// var config = {
+//   apiKey: "MyKey", // redacted key
+//   authDomain: "dnavid-c48b6.firebaseapp.com",
+//   databaseURL: "https://dnavid-c48b6.firebaseio.com",
+//   storageBucket: "dnavid-c48b6.appspot.com",
+// };
+// var firebaseApp = firebase.initializeApp(config);
+
+
 
 // Main navbar
 export default class NavBar extends Component {
@@ -96,11 +106,11 @@ class Points extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pointVal: 0
+      pointVal: 8800
     };
   }
 
-  
+
   render() {
     return (
         <div>
