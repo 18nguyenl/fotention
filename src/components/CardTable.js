@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import "../CardTable.css"
-import {TweenMax, TweenLite, Power2} from 'gsap/TweenMax'
+import {TweenMax, TweenLite, Power2, TimelineLite} from 'gsap/TweenMax'
 
 export default class CardTable extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cards: Array(),
+            cards: [],
         };
     }
     
@@ -19,7 +19,9 @@ export default class CardTable extends Component {
 
         return(
         <div className="card-table">
-            {companies}
+            {this.state.cards.map((i) => <Card key={i}
+                ref={r => this.cards[i] = r}
+            />)}
         </div>
         );
     }
@@ -30,16 +32,21 @@ export class Card extends Component {
         super(props);
         this.myTween = null;
         this.myElement = null;
+        this.tl = new TimelineLite();
     }
-
+    
     componentDidMount() {
-        this.myTween = TweenLite.from(this.myElement, 1, {x: -30, opacity: 0, ease: Power2.easeIn})
+        for (let i = 0; i < this.state.cards.length; i++) {
+            this.tl.from(this.state.cards[i], 1.2, {x: -30, opacity: 0, ease: Power2.easeInOut}, 0.2)
+        }
     }
-
-
+    
+    
     render() {
         return(
-            <div className = "card" ref={div => this.myElement = div}>
+            <div 
+            className = "card" 
+            >
                 <h2 className = "card-header">
                     {this.props.header}
                 </h2>
