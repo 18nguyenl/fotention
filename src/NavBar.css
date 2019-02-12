@@ -44,8 +44,10 @@
 
 .nav-bar-profile {
   position: absolute;
+  display: flex;
   top: 3rem;
   right: 2.65rem;
+  overflow-y: hidden;
 }
 
 .nav-bar-title {
