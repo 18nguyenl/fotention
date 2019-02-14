@@ -11,12 +11,13 @@ export default class CardTable extends Component {
     }
     
     componentDidMount() {
-        this.myTween.staggerFrom(this.myElements, 0.5, {x: -50, opacity: 0}, 0.1);
+        this.myTween.staggerFrom(this.myElements, 0.7, {x: -60, autoAlpha: 0, ease: Power2.Out}, 0.1);
+        this.myTween.play();
     }
 
-    setRef (index, ref) {
-        return this.myElements[index] = ref;
-    }
+    // setRef (index, ref) {
+    //     return this.myElements[index] = ref;
+    // }
     
     render() {
         // const companies = this.state.cards.splice();
@@ -28,12 +29,17 @@ export default class CardTable extends Component {
         return(
         <div className="card-table">
             {companies.map((element, index) => {
-                return <Card 
+                return <div
                     key={index}
-                    innerRef={this.setRef.bind(this)}
+                    className= "card"
+                    ref={div => this.myElements[index] = div}
+                >
+                <Card 
+                    // innerRef={this.setRef.bind(this)}
                     header={element.header}
                     body={element.body}
                 />
+                </div> 
             })}
         </div>
         );
@@ -47,12 +53,12 @@ export class Card extends Component {
     }
 
     componentDidMount() {
-        this.props.innerRef(this.props.key, this.myElement);
+        // this.props.innerRef(this.props.key, this.myElement);
     }
 
     render() {
         return(
-            <div className = "card" ref={div => this.myElement = div}>
+            <div>
                 <h2 className = "card-header">
                     {this.props.header}
                 </h2>
