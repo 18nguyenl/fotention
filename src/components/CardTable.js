@@ -35,18 +35,12 @@ export default class CardTable extends Component {
 export class Card extends Component {
     constructor(props) {
         super(props);
-        this.myTween = null;
-        this.myElement = null;
-    }
-
-    componentDidMount() {
-        TweenLite.from(this.myElement, 1, {x: -30, opacity: 0, ease: Power2.easeIn, delay: .05})
     }
 
 
     render() {
         return(
-            <div className = "card" ref={div => this.myElement = div}>
+            <div className = "card">
                 <h2 className = "card-header">
                     {this.props.header}
                 </h2>
