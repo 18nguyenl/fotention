@@ -1,13 +1,21 @@
 import React, {Component} from 'react';
 import "../CardTable.css"
-import {TweenMax, TweenLite, Power2} from 'gsap/TweenMax'
+import {TweenMax, TweenLite, Power2, TimelineLite, CSSPlugin} from 'gsap/all'
+import {companies} from "../data/companies.js"
 
 export default class CardTable extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            cards: Array(),
-        };
+        this.myTween = new TimelineLite({paused: true});
+        this.myElements = [];
+    }
+    
+    componentDidMount() {
+        this.myTween.staggerFrom(this.myElements, 0.5, {x: -50, opacity: 0}, 0.1);
+    }
+
+    setRef (index, ref) {
+        return this.myElements[index] = ref;
     }
     
     render() {
@@ -16,17 +24,17 @@ export default class CardTable extends Component {
         // companies.push(<Card header= "Quartz" body= "25% off = 200p"/>)
         // companies.push(<Card header= "Yeetus" body= "New shoes = 400"/>)
         // companies.push(<Card header= "Skype" body= "BOGO"/>)
-        let companies = [
-            <Card header= "Wopa" body= "$48 = 400p"/>,
-            <Card header= "Quartz" body= "25% off = 200p"/>,
-            <Card header= "Yeetus" body= "New shoes = 400"/>,
-            <Card header= "Yeetus" body= "New shoes = 400"/>,
-            <Card header= "Skype" body= "BOGO"/>
-        ]
-
+        this.myTween.kill().clear().pause(0);
         return(
         <div className="card-table">
-            {companies.map(card => card)}
+            {companies.map((element, index) => {
+                return <Card 
+                    key={index}
+                    innerRef={this.setRef.bind(this)}
+                    header={element.header}
+                    body={element.body}
+                />
+            })}
         </div>
         );
     }
@@ -35,12 +43,16 @@ export default class CardTable extends Component {
 export class Card extends Component {
     constructor(props) {
         super(props);
+        this.myElement = null;
     }
 
+    componentDidMount() {
+        this.props.innerRef(this.props.key, this.myElement);
+    }
 
     render() {
         return(
-            <div className = "card">
+            <div className = "card" ref={div => this.myElement = div}>
                 <h2 className = "card-header">
                     {this.props.header}
                 </h2>
