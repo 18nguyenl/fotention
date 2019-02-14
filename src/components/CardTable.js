@@ -31,7 +31,7 @@ export default class CardTable extends Component {
             {companies.map((element, index) => {
                 return <div
                     key={index}
-                    className= "card"
+                    // className= "card"
                     ref={div => this.myElements[index] = div}
                 >
                 <Card 
@@ -58,7 +58,7 @@ export class Card extends Component {
 
     render() {
         return(
-            <div>
+            <div className = "card">
                 <h2 className = "card-header">
                     {this.props.header}
                 </h2>
