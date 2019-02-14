@@ -11,15 +11,22 @@ export default class CardTable extends Component {
     }
     
     render() {
-        const companies = this.state.cards.splice();
-        companies.push(<Card header= "Wopa" body= "$48 = 400p"/>)
-        companies.push(<Card header= "Quartz" body= "25% off = 200p"/>)
-        companies.push(<Card header= "Yeetus" body= "New shoes = 400"/>)
-        companies.push(<Card header= "Skype" body= "BOGO"/>)
+        // const companies = this.state.cards.splice();
+        // companies.push(<Card header= "Wopa" body= "$48 = 400p"/>)
+        // companies.push(<Card header= "Quartz" body= "25% off = 200p"/>)
+        // companies.push(<Card header= "Yeetus" body= "New shoes = 400"/>)
+        // companies.push(<Card header= "Skype" body= "BOGO"/>)
+        let companies = [
+            <Card header= "Wopa" body= "$48 = 400p"/>,
+            <Card header= "Quartz" body= "25% off = 200p"/>,
+            <Card header= "Yeetus" body= "New shoes = 400"/>,
+            <Card header= "Yeetus" body= "New shoes = 400"/>,
+            <Card header= "Skype" body= "BOGO"/>
+        ]
 
         return(
         <div className="card-table">
-            {companies}
+            {companies.map(card => card)}
         </div>
         );
     }
@@ -33,7 +40,7 @@ export class Card extends Component {
     }
 
     componentDidMount() {
-        this.myTween = TweenLite.from(this.myElement, 1, {x: -30, opacity: 0, ease: Power2.easeIn})
+        TweenLite.from(this.myElement, 1, {x: -30, opacity: 0, ease: Power2.easeIn, delay: .05})
     }
 
 
