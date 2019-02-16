@@ -21,6 +21,7 @@
     align-content: center;
     justify-content: space-around;
     visibility: initial;
+    overflow-y: hidden;
 }
 
 .card-header {

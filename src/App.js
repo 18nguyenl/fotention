@@ -29,7 +29,9 @@ class App extends Component {
       <CardTable />
     ];
     return (
-      <TransitionGroup>
+      <TransitionGroup
+        style={{overflowY: "hidden"}}
+      >
         {ActuallyTheWebsite.map((element, index) => {
           return(
             <Transition
