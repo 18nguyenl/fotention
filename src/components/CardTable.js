@@ -48,7 +48,6 @@ export default class CardTable extends Component {
                 // style={{"transitionDelay": `${index * .05}s`}}
                 mountOnEnter
                 unmountOnExit
-                appear={true}
                 onEnter={node => {
                     this.myElements[index] = node;
                 }}

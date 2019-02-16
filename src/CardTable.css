@@ -20,6 +20,7 @@
     flex-wrap: wrap;
     align-content: center;
     justify-content: space-around;
+    visibility: initial;
 }
 
 .card-header {
