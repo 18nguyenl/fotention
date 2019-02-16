@@ -12,13 +12,13 @@ export default class CardTable extends Component {
   }
 
   componentDidMount() {
-    // this.myTween.staggerFrom(
-    //   this.myElements,
-    //   1,
-    //   { x: -60, autoAlpha: 0, ease: Power2.Out },
-    //   0.2
-    // );
-    // this.myTween.play();
+    this.myTween.staggerFrom(
+      this.myElements,
+      1,
+      { x: -60, autoAlpha: 0, ease: Power2.Out },
+      0.2
+    );
+    this.myTween.play();
   }
 
   // setRef (index, ref) {
@@ -43,19 +43,14 @@ export default class CardTable extends Component {
               <Transition
                 key={index}
                 // className= "card"
-                ref={div => (this.myElements[index] = div)}
+                // ref={div => (this.myElements[index] = div)}
                 timeout={1000}
                 // style={{"transitionDelay": `${index * .05}s`}}
                 mountOnEnter
                 unmountOnExit
                 appear={true}
                 onEnter={node => {
-                  TweenMax.from(node, 1, {
-                    x: -60,
-                    autoAlpha: 0,
-                    ease: Power2.Out,
-                    delay: index * 0.14, // janky solution
-                  });
+                    this.myElements[index] = node;
                 }}
               >
                 <Card
